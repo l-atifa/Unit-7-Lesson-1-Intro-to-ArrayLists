@@ -2,7 +2,7 @@ import java.util.*;
 
 class Main {
   public static void main(String[] args) {
-    Scanner it = new Scanner(System.in);
+    /*Scanner it = new Scanner(System.in);
 
     ArrayList <String> lastNames = new ArrayList <String>();
     lastNames.add("Saleh");
@@ -29,7 +29,7 @@ class Main {
     System.out.println(lastNames);
     System.out.println("Size of lastNames is " + lastNames.size()); //size will not change
 
-    lastNames.clear();
+    //lastNames.clear();
     System.out.println("Size of lastNames is " + lastNames.size());
     
     System.out.println();
@@ -47,7 +47,79 @@ class Main {
     demo.add(three);
     System.out.println(demo); //although notes about mixed data types appear, java still runs the ArrayList
 
+    System.out.println();
+
+    //traversals
+    for(int i = 0; i<lastNames.size(); i++)
+    {
+      System.out.println("Item " + (i+1) + ": " + lastNames.get(i)); //in order
+    }
+    System.out.println();
+    for(int i = lastNames.size()-1; i>=0; i--)
+    {
+      System.out.println("Item " + (i+1) + ": " + lastNames.get(i)); //reverse order
+    }
+    System.out.println();
+    lastNames.add("Barnett");
+    lastNames.add("Yaldo");
+    lastNames.add("McNamara");
+    for(String x: lastNames)
+    {
+      System.out.println(x);
+    }
+
+    ArrayList <String> letters = new ArrayList <String>();
+    letters.add("A");
+    letters.add("B");
+    letters.add("C");
+    letters.add("D");
+    letters.add("E");
+    letters.add("F");
+
+    for(int i = 0; i<letters.size(); i++)
+    {
+      for(int j = 0; j<lastNames.size(); j++)
+      {
+        if(letters.get(i).equals(lastNames.get(j).substring(0,1)))
+        {
+          System.out.println(lastNames.get(j) + " starts with " + letters.get(i));
+        }
+      }
+    }*/
+
+    ArrayList<String> dsf = new ArrayList<String>();
+    dsf.add("drive");
+    dsf.add("computer");
+    dsf.add("memory");
+    dsf.add("algorithm");
+    insertSort(dsf);
+
 
 
   }
+
+  public static int insertSort(ArrayList<String> list)
+{
+  int count = 0;
+
+  for (int i = 1; i < list.size(); i++)
+  {
+    String toInsert = list.get(i);
+    int j;
+
+    for (j = i; j > 0; j--)
+    {
+      count++;
+      if (toInsert.compareTo(list.get(j-1)) >= 0)
+      {
+        break;
+      }
+    }
+
+    list.add(j, list.remove(i));
+  }
+  return count;
+}
+
+
 }
